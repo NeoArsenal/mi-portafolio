@@ -1,15 +1,16 @@
-'use client';
+﻿'use client';
 import React, { useEffect, useRef, useState } from 'react';
 import AppImage from "@/components/ui/AppImage";
 
-
 const ROLES = [
-'Ingeniero de Sistemas',
-'Full-Stack Developer',
-'Computer Vision Enthusiast',
-'Next.js Developer',
-'Python & OpenCV Dev'];
-
+  'Ingeniero de Sistemas',
+  'Full-Stack Developer',
+  'Machine Learning & Data Dev',
+  'Java & Spring Boot Dev',
+  'Next.js & TypeScript',
+  'Computer Vision Enthusiast',
+  'Python & OpenCV Dev'
+];
 
 export default function HeroSection() {
   const [roleIndex, setRoleIndex] = useState(0);
@@ -37,7 +38,6 @@ export default function HeroSection() {
           setDisplayedRole(displayedRole.slice(0, -1));
         }, 28);
       } else {
-      // SOLUCIÓN: Envolverlo en un timeout con medio segundo de pausa
         timeout = setTimeout(() => {
           setRoleIndex((i) => (i + 1) % ROLES.length);
           setTyping(true);
@@ -64,7 +64,7 @@ export default function HeroSection() {
     return () => hero.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
-  const techBadges = ['Next.js', 'React', 'TypeScript', 'Python', 'OpenCV', 'PostgreSQL', 'Tailwind CSS', 'Git', 'JavaScript', 'HTML', 'CSS', 'Vercel', 'Node.js', 'Angular', 'C#', 'Java'];
+  const techBadges = ['Next.js', 'React', 'TypeScript', 'Spring Boot', 'Java', 'Python', 'Machine Learning', 'OpenCV', 'PostgreSQL', 'Tailwind CSS', 'Git', 'Three.js'];
 
   return (
     <section
@@ -96,7 +96,6 @@ export default function HeroSection() {
             backgroundImage: 'linear-gradient(to right, rgba(139,92,246,0.5) 1px, transparent 1px), linear-gradient(to bottom, rgba(139,92,246,0.5) 1px, transparent 1px)',
             backgroundSize: '64px 64px'
           }} />
-
       </div>
 
       {/* Hero content */}
@@ -147,10 +146,10 @@ export default function HeroSection() {
 
               Estudiante de{' '}
               <span style={{ color: 'var(--accent-violet)', fontWeight: 600 }}>Ingeniería de Sistemas</span>
-              {' '}en UPN, 8vo ciclo. Me apasiona el desarrollo web moderno y la robotica.
-              Ese mismo enfoque práctico fue el que me permitió destacar con el{' '}
+              {' '}en UPN (9no ciclo). Especializado en desarrollo web full-stack moderno, arquitectura backend y modelos de Machine Learning para predicción de datos y visión computacional.
+              Ganador del{' '}
               <span style={{ color: 'var(--accent-fuchsia)', fontWeight: 600 }}>1er puesto en EXPOINGENIERÍA</span>.
-              Actualmente construyendo proyectos y buscando nuevas formas de innovar.
+              Actualmente desarrollando sistemas clínicos con SLAs, modelos predictivos y plataformas escalables en Next.js, Java y Python.
             </p>
 
             {/* CTAs */}
@@ -199,25 +198,18 @@ export default function HeroSection() {
               className="flex flex-wrap gap-2 justify-center lg:justify-start animate-fade-slide-up"
               style={{ animationDelay: '0.65s', opacity: 0, animationFillMode: 'forwards' }}>
 
-              {techBadges.map((badge, i) =>
-              <span
-                key={badge}
-                className="project-tag animate-float"
-                style={{ animationDelay: `${i * 0.3}s` }}>
-
+              {techBadges.map((badge) =>
+                <span key={badge} className="hero-tech-badge">
                   {badge}
                 </span>
               )}
             </div>
           </div>
 
-          {/* Right: Avatar / visual */}
-          <div
-            className="relative flex-shrink-0 animate-fade-slide-up"
-            style={{ animationDelay: '0.3s', opacity: 0, animationFillMode: 'forwards' }}>
-
+          {/* Right: Profile photo with floating cards */}
+          <div className="relative flex-shrink-0 animate-fade-slide-up" style={{ animationDelay: '0.3s', opacity: 0, animationFillMode: 'forwards' }}>
             <div className="relative">
-              {/* Outer glow ring */}
+              {/* Glow border */}
               <div
                 className="absolute inset-[-3px] rounded-full opacity-60"
                 style={{ background: 'linear-gradient(135deg, #7C3AED, #D946EF)', filter: 'blur(8px)' }} />
@@ -229,7 +221,7 @@ export default function HeroSection() {
 
                 <AppImage
                   src='/perfil.png'
-                  alt="Alonso, estudiante de Ingeniería de Sistemas en UPN Lima, sonriendo con ropa casual"
+                  alt="Alonso Arrelucea, estudiante de Ingeniería de Sistemas en UPN Lima"
                   fill
                   className="object-cover"
                   priority />
@@ -237,7 +229,6 @@ export default function HeroSection() {
                 <div
                   className="absolute inset-0"
                   style={{ background: 'linear-gradient(135deg, rgba(124,58,237,0.2) 0%, transparent 60%)' }} />
-
               </div>
 
               {/* Floating achievement badge */}
@@ -254,8 +245,8 @@ export default function HeroSection() {
                 className="absolute -top-4 -left-4 animate-float px-3 py-2 rounded-2xl text-xs font-bold"
                 style={{ background: 'var(--bg-card)', border: '1px solid var(--border-medium)', color: 'var(--text-primary)' }}>
 
-                📍 UPN · Lima
-                <div className="text-[10px] opacity-60 font-normal">8vo ciclo</div>
+                🎓 UPN · Lima
+                <div className="text-[10px] opacity-60 font-normal">9no ciclo</div>
               </div>
             </div>
           </div>
@@ -267,14 +258,14 @@ export default function HeroSection() {
           style={{ animationDelay: '0.75s', opacity: 0, animationFillMode: 'forwards' }}>
 
           {[
-          { value: '3+', label: 'Proyectos' },
-          { value: '8vo', label: 'Ciclo UPN' },
-          { value: '1er', label: 'Puesto Expo' }].
-          map((stat) =>
-          <div
-            key={stat.label}
-            className="text-center p-4 rounded-2xl"
-            style={{ background: 'rgba(139,92,246,0.08)', border: '1px solid var(--border-subtle)' }}>
+            { value: '5+', label: 'Proyectos Clave' },
+            { value: '9no', label: 'Ciclo UPN' },
+            { value: '1er', label: 'Puesto Expo' }
+          ].map((stat) =>
+            <div
+              key={stat.label}
+              className="text-center p-4 rounded-2xl"
+              style={{ background: 'rgba(139,92,246,0.08)', border: '1px solid var(--border-subtle)' }}>
 
               <div className="font-display text-2xl font-black gradient-text">{stat.value}</div>
               <div className="text-xs mt-0.5" style={{ color: 'var(--text-muted)' }}>{stat.label}</div>
@@ -288,10 +279,10 @@ export default function HeroSection() {
         <span className="text-xs tracking-widest uppercase" style={{ color: 'var(--text-muted)' }}>Scroll</span>
         <div className="animate-scroll-bounce">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ color: 'var(--accent-violet)' }}>
-            <path d="M12 5v14M5 12l7 7 7-7" />
+            <path d="M12 5v14M5 12l7 7-7 7" />
           </svg>
         </div>
       </div>
-    </section>);
-
+    </section>
+  );
 }
